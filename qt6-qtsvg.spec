@@ -2,14 +2,16 @@
 
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
-Version: 6.0.0
-Release: 2%{?dist}
+Version: 6.0.1
+Release: 1%{?dist}
 
-# See LGPL_EXCEPTIONS.txt, LICENSE.GPL3, respectively, for exception details
-License: LGPLv2 with exceptions or GPLv3 with exceptions
+License: LGPLv3 or GPLv2+
 Url:     http://www.qt.io
 %global majmin %(echo %{version} | cut -d. -f1-2)
 Source0: https://download.qt.io/official_releases/qt/%{majmin}/%{version}/submodules/%{qt_module}-everywhere-src-%{version}.tar.xz
+
+# filter plugin provides
+%global __provides_exclude_from ^%{_qt6_plugindir}/.*\\.so$
 
 BuildRequires: gcc-c++
 BuildRequires: cmake
@@ -59,10 +61,8 @@ done
 popd
 
 
-%ldconfig_scriptlets
-
 %files
-%license LICENSE.*
+%license dist/changes-5.7.0 LICENSE.GPL2 LICENSE.GPL3 LICENSE.LGPLv3
 %{_qt6_libdir}/libQt6Svg.so.6*
 %{_qt6_libdir}/libQt6SvgWidgets.so.6*
 %{_qt6_plugindir}/iconengines/libqsvgicon.so
@@ -86,6 +86,9 @@ popd
 
 
 %changelog
+* Thu Feb 04 2021 Jan Grulich <jgrulich@redhat.com> - 6.0.1-1
+- 6.0.1
+
 * Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 6.0.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
