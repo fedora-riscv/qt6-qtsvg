@@ -2,7 +2,7 @@
 
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
-Version: 6.0.1
+Version: 6.0.3
 Release: 1%{?dist}
 
 License: LGPLv3 or GPLv2+
@@ -86,6 +86,9 @@ popd
 
 
 %changelog
+* Mon Apr 05 2021 Jan Grulich <jgrulich@redhat.com> - 6.0.3-1
+- 6.0.3
+
 * Thu Feb 04 2021 Jan Grulich <jgrulich@redhat.com> - 6.0.1-1
 - 6.0.1
 
