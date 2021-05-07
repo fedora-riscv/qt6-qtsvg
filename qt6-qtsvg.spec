@@ -2,7 +2,7 @@
 
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
-Version: 6.0.3
+Version: 6.1.0
 Release: 1%{?dist}
 
 License: LGPLv3 or GPLv2+
@@ -83,9 +83,13 @@ popd
 %{_qt6_libdir}/cmake/Qt6Svg/*.cmake
 %dir %{_qt6_libdir}/cmake/Qt6SvgWidgets/
 %{_qt6_libdir}/cmake/Qt6SvgWidgets/*.cmake
-
+%dir  %{_qt6_libdir}/qt6/examples/svg
+%{_qt6_libdir}/qt6/examples/svg/*
 
 %changelog
+* Thu May 06 2021 Jan Grulich <jgrulich@redhat.com> - 6.1.0-1
+- 6.1.0
+
 * Mon Apr 05 2021 Jan Grulich <jgrulich@redhat.com> - 6.0.3-1
 - 6.0.3
 
