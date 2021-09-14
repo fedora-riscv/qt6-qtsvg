@@ -1,14 +1,29 @@
+# FIXME: qt6-qtdeclarative doesn't build on S390x
+# BUG: https://bugreports.qt.io/browse/QTBUG-93101
+ExcludeArch: s390x
+
 %global qt_module qtsvg
+
+%global unstable 1
+%if 0%{unstable}
+%global prerelease beta4
+%endif
 
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
-Version: 6.1.2
+Version: 6.2.0%{?unstable:~%{prerelease}}
 Release: 1%{?dist}
 
 License: LGPLv3 or GPLv2+
 Url:     http://www.qt.io
 %global majmin %(echo %{version} | cut -d. -f1-2)
+%global  qt_version %(echo %{version} | cut -d~ -f1)
+
+%if 0%{unstable}
+Source0: https://download.qt.io/development_releases/qt/%{majmin}/%{qt_version}/submodules/%{qt_module}-everywhere-src-%{qt_version}-%{prerelease}.tar.xz
+%else
 Source0: https://download.qt.io/official_releases/qt/%{majmin}/%{version}/submodules/%{qt_module}-everywhere-src-%{version}.tar.xz
+%endif
 
 # filter plugin provides
 %global __provides_exclude_from ^%{_qt6_plugindir}/.*\\.so$
@@ -36,7 +51,7 @@ Requires: qt6-qtbase-devel%{?_isa}
 %{summary}.
 
 %prep
-%autosetup -n %{qt_module}-everywhere-src-%{version} -p1
+%autosetup -n %{qt_module}-everywhere-src-%{qt_version}%{?unstable:-%{prerelease}} -p1
 
 
 %build
@@ -85,8 +100,12 @@ popd
 %{_qt6_libdir}/cmake/Qt6SvgWidgets/*.cmake
 %dir  %{_qt6_libdir}/qt6/examples/svg
 %{_qt6_libdir}/qt6/examples/svg/*
+%{_qt6_libdir}/metatypes/qt6*_metatypes.json
 
 %changelog
+* Mon Sep 13 2021 Jan Grulich <jgrulich@redhat.com> - 6.2.0~beta4-1
+- 6.2.0 - beta4
+
 * Thu Aug 12 2021 Jan Grulich <jgrulich@redhat.com> - 6.1.2-1
 - 6.1.2
 
