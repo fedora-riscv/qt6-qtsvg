@@ -6,7 +6,7 @@ ExcludeArch: s390x
 
 %global unstable 1
 %if 0%{unstable}
-%global prerelease beta4
+%global prerelease rc
 %endif
 
 Summary: Qt6 - Support for rendering and displaying SVG
@@ -103,6 +103,9 @@ popd
 %{_qt6_libdir}/metatypes/qt6*_metatypes.json
 
 %changelog
+* Sat Sep 18 2021 Jan Grulich <jgrulich@redhat.com> - 6.2.0~rc-1
+- 6.2.0 - rc
+
 * Mon Sep 13 2021 Jan Grulich <jgrulich@redhat.com> - 6.2.0~beta4-1
 - 6.2.0 - beta4
 
