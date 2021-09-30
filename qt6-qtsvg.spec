@@ -4,8 +4,8 @@ ExcludeArch: s390x
 
 %global qt_module qtsvg
 
-%global unstable 1
-%if 0%{unstable}
+#global unstable 1
+%if 0%{?unstable}
 %global prerelease rc2
 %endif
 
@@ -19,7 +19,7 @@ Url:     http://www.qt.io
 %global majmin %(echo %{version} | cut -d. -f1-2)
 %global  qt_version %(echo %{version} | cut -d~ -f1)
 
-%if 0%{unstable}
+%if 0%{?unstable}
 Source0: https://download.qt.io/development_releases/qt/%{majmin}/%{qt_version}/submodules/%{qt_module}-everywhere-src-%{qt_version}-%{prerelease}.tar.xz
 %else
 Source0: https://download.qt.io/official_releases/qt/%{majmin}/%{version}/submodules/%{qt_module}-everywhere-src-%{version}.tar.xz
@@ -103,6 +103,9 @@ popd
 %{_qt6_libdir}/metatypes/qt6*_metatypes.json
 
 %changelog
+* Thu Sep 30 2021 Jan Grulich <jgrulich@redhat.com> - 6.2.0-1
+- 6.2.0
+
 * Mon Sep 27 2021 Jan Grulich <jgrulich@redhat.com> - 6.2.0~rc2-1
 - 6.2.0 - rc2
 
