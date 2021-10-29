@@ -11,7 +11,7 @@ ExcludeArch: s390x
 
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
-Version: 6.2.0%{?unstable:~%{prerelease}}
+Version: 6.2.1
 Release: 1%{?dist}
 
 License: LGPLv3 or GPLv2+
@@ -103,6 +103,9 @@ popd
 %{_qt6_libdir}/metatypes/qt6*_metatypes.json
 
 %changelog
+* Fri Oct 29 2021 Jan Grulich <jgrulich@redhat.com> - 6.2.1-1
+- 6.2.1
+
 * Thu Sep 30 2021 Jan Grulich <jgrulich@redhat.com> - 6.2.0-1
 - 6.2.0
 
