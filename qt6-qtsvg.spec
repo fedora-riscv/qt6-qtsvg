@@ -11,8 +11,8 @@ ExcludeArch: s390x
 
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
-Version: 6.2.2
-Release: 2%{?dist}
+Version: 6.2.3
+Release: 1%{?dist}
 
 License: LGPLv3 or GPLv2+
 Url:     http://www.qt.io
@@ -103,6 +103,9 @@ popd
 %{_qt6_libdir}/metatypes/qt6*_metatypes.json
 
 %changelog
+* Mon Jan 31 2022 Jan Grulich <jgrulich@redhat.com> - 6.2.3-1
+- 6.2.3
+
 * Fri Jan 21 2022 Fedora Release Engineering <releng@fedoraproject.org> - 6.2.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
