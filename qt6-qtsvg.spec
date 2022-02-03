@@ -12,7 +12,7 @@ ExcludeArch: s390x
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
 Version: 6.2.3
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: LGPLv3 or GPLv2+
 Url:     http://www.qt.io
@@ -77,7 +77,7 @@ popd
 
 
 %files
-%license dist/changes-5.7.0 LICENSE.GPL2 LICENSE.GPL3 LICENSE.LGPLv3
+%license dist/changes-5.7.0 LICENSE.GPL2 LICENSE.GPL3 LICENSE.LGPL3
 %{_qt6_libdir}/libQt6Svg.so.6*
 %{_qt6_libdir}/libQt6SvgWidgets.so.6*
 %{_qt6_plugindir}/iconengines/libqsvgicon.so
@@ -103,6 +103,9 @@ popd
 %{_qt6_libdir}/metatypes/qt6*_metatypes.json
 
 %changelog
+* Thu Feb 03 2022 Benjamin A. Beasley <code@musicinmybrain.net> - 6.2.3-2
+- Fix license file name (fix RHBZ#2048723)
+
 * Mon Jan 31 2022 Jan Grulich <jgrulich@redhat.com> - 6.2.3-1
 - 6.2.3
 
