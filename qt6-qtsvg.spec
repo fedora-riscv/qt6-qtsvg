@@ -1,6 +1,3 @@
-# FIXME: qt6-qtdeclarative doesn't build on S390x
-# BUG: https://bugreports.qt.io/browse/QTBUG-93101
-ExcludeArch: s390x
 
 %global qt_module qtsvg
 
@@ -12,7 +9,7 @@ ExcludeArch: s390x
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
 Version: 6.2.3
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 License: LGPLv3 or GPLv2+
 Url:     http://www.qt.io
@@ -103,6 +100,9 @@ popd
 %{_qt6_libdir}/metatypes/qt6*_metatypes.json
 
 %changelog
+* Fri Feb 25 2022 Jan Grulich <jgrulich@redhat.com> - 6.2.3-3
+- Enable s390x builds
+
 * Thu Feb 03 2022 Benjamin A. Beasley <code@musicinmybrain.net> - 6.2.3-2
 - Fix license file name (fix RHBZ#2048723)
 
