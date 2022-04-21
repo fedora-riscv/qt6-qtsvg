@@ -6,10 +6,12 @@
 %global prerelease rc2
 %endif
 
+#global examples 1
+
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
-Version: 6.2.3
-Release: 3%{?dist}
+Version: 6.3.0
+Release: 1%{?dist}
 
 License: LGPLv3 or GPLv2+
 Url:     http://www.qt.io
@@ -47,12 +49,20 @@ Requires: qt6-qtbase-devel%{?_isa}
 %description devel
 %{summary}.
 
+%if 0%{?examples}
+%package examples
+Summary: Programming examples for %{name}
+Requires: %{name}-common = %{version}-%{release}
+%description examples
+%{summary}.
+%endif
+
 %prep
 %autosetup -n %{qt_module}-everywhere-src-%{qt_version}%{?unstable:-%{prerelease}} -p1
 
 
 %build
-%cmake_qt6
+%cmake_qt6 -DQT_BUILD_EXAMPLES:BOOL=%{?examples:ON}%{!?examples:OFF}
 
 %cmake_build
 
@@ -95,11 +105,17 @@ popd
 %{_qt6_libdir}/cmake/Qt6Svg/*.cmake
 %dir %{_qt6_libdir}/cmake/Qt6SvgWidgets/
 %{_qt6_libdir}/cmake/Qt6SvgWidgets/*.cmake
-%dir  %{_qt6_libdir}/qt6/examples/svg
-%{_qt6_libdir}/qt6/examples/svg/*
 %{_qt6_libdir}/metatypes/qt6*_metatypes.json
 
+%if 0%{?examples}
+%files examples
+%{_qt6_examplesdir}/
+%endif
+
 %changelog
+* Wed Apr 13 2022 Jan Grulich <jgrulich@redhat.com> - 6.3.0-1
+- 6.3.0
+
 * Fri Feb 25 2022 Jan Grulich <jgrulich@redhat.com> - 6.2.3-3
 - Enable s390x builds
 
