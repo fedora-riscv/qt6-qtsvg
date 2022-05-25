@@ -6,12 +6,12 @@
 %global prerelease rc2
 %endif
 
-#global examples 1
+%global examples 1
 
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
 Version: 6.3.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: LGPLv3 or GPLv2+
 Url:     http://www.qt.io
@@ -53,6 +53,7 @@ Requires: qt6-qtbase-devel%{?_isa}
 %package examples
 Summary: Programming examples for %{name}
 Requires: %{name}-common = %{version}-%{release}
+BuildRequires: qt6-qtsvg-devel
 %description examples
 %{summary}.
 %endif
@@ -113,6 +114,9 @@ popd
 %endif
 
 %changelog
+* Wed May 25 2022 Jan Grulich <jgrulich@redhat.com> - 6.3.0-2
+- Enable examples
+
 * Wed Apr 13 2022 Jan Grulich <jgrulich@redhat.com> - 6.3.0-1
 - 6.3.0
 
