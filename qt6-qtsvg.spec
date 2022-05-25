@@ -53,7 +53,7 @@ Requires: qt6-qtbase-devel%{?_isa}
 %package examples
 Summary: Programming examples for %{name}
 Requires: %{name}-common = %{version}-%{release}
-BuildRequires: qt6-qtsvg-devel
+BuildRequires: qt6-qtsvg-devel >= %{version}
 %description examples
 %{summary}.
 %endif
