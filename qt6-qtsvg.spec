@@ -107,7 +107,7 @@ popd
 %dir %{_qt6_libdir}/cmake/Qt6SvgWidgets/
 %{_qt6_libdir}/cmake/Qt6SvgWidgets/*.cmake
 %{_qt6_libdir}/metatypes/qt6*_metatypes.json
-%{_qt6_libdir}/*.pc
+%{_qt6_libdir}/pkgconfig/*.pc
 
 %if 0%{?examples}
 %files examples
