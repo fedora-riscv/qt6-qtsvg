@@ -11,7 +11,7 @@
 Summary: Qt6 - Support for rendering and displaying SVG
 Name:    qt6-%{qt_module}
 Version: 6.3.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 License: LGPLv3 or GPLv2+
 Url:     http://www.qt.io
@@ -115,6 +115,9 @@ popd
 %endif
 
 %changelog
+* Sat Jul 23 2022 Fedora Release Engineering <releng@fedoraproject.org> - 6.3.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
+
 * Wed Jul 13 2022 Jan Grulich <jgrulich@redhat.com> - 6.3.1-1
 - 6.3.1
 
