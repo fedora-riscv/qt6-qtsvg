@@ -53,7 +53,6 @@ Requires: qt6-qtbase-devel%{?_isa}
 %package examples
 Summary: Programming examples for %{name}
 Requires: %{name}%{?_isa} = %{version}-%{release}
-# BuildRequires: qt6-qtsvg-devel >= %{version}
 %description examples
 %{summary}.
 %endif
@@ -85,7 +84,7 @@ popd
 
 
 %files
-%license dist/changes-5.7.0 LICENSES/GPL* LICENSES/LGPL3
+%license LICENSES/GPL* LICENSES/LGPL*
 %{_qt6_libdir}/libQt6Svg.so.6*
 %{_qt6_libdir}/libQt6SvgWidgets.so.6*
 %{_qt6_plugindir}/iconengines/libqsvgicon.so
